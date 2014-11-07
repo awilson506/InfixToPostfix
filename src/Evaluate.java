@@ -6,9 +6,10 @@ public class Evaluate {
 	private static final char ADD = '+', SUBTRACT = '-';
     private static final char MULTIPLY = '*', DIVIDE = '/', POW = '^';
 	
-	static int calculate(String expr) { 
+	static double calculate(String expr) { 
 		Stack stack = new Stack(0);
-	    int op1, op2, result = 0;
+	    int op1, op2;
+	    double result = 0;
 	    String token;
 	    StringTokenizer tokenizer = new StringTokenizer(expr);
 	
@@ -19,7 +20,7 @@ public class Evaluate {
 	            op2 = ((Integer) stack.pop()).intValue();
 	            op1 = ((Integer) stack.pop()).intValue();
 	            result = evalSingleOp(token.charAt(0), op1, op2);
-	            stack.push(new Integer(result));
+	            stack.push((int) result);
 	        }
 	        else
 	            stack.push(new Integer(Integer.parseInt(token)));
@@ -38,8 +39,8 @@ public class Evaluate {
 	            || token.equals("^"));
 	}
 	
-	private static int evalSingleOp(char operation, int op1, int op2) {
-        int result = 0;
+	private static double evalSingleOp(char operation, int op1, int op2) {
+        double result = 0;
 
         switch (operation) {
             case ADD :
@@ -55,7 +56,7 @@ public class Evaluate {
                 result = op1 / op2;
                 break;
             case POW : 
-            	result = (int) Math.pow(op1,op2);
+            	result = Math.pow(op1,op2);
         }
         
         
