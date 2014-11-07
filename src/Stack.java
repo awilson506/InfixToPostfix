@@ -20,7 +20,7 @@ public class Stack {
 			stack.remove(0);
 			return i;
 		} else {
-			return -1;// Or any invalid value
+			return -1;
 		}
 	}
 
@@ -28,7 +28,7 @@ public class Stack {
 		if (!stack.isEmpty()) {
 			return stack.get(0);
 		} else {
-			return -1;// Or any invalid value
+			return -1;
 		}
 	}
 

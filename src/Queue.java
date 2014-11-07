@@ -3,15 +3,14 @@ import java.util.LinkedList;
 public class Queue {
 	private LinkedList<Object> list;
 	private int size;
-	// Queue constructor
-	public Queue()
-	{
-		// Create a new LinkedList.
+	
+	public Queue() {
+		
 		list = new LinkedList<Object>();
 		size = 0;
 	}
-	public String elements()
-	{
+	public String elements() {
+		
 		StringBuilder builder = new StringBuilder();
 		for (Object item : list){
 			builder.append(" ");
@@ -21,56 +20,33 @@ public class Queue {
 		return builder.toString();
 	}
 
-	public boolean isEmpty()
-	// Post: Returns true if the queue is empty. Otherwise, false.
-	{
+	public boolean isEmpty() {
+		
 		return (list.size() == 0);
 	}
 
-	public void enqueue(Object item)
-	// Post: An item is added to the back of the queue.
-	{
-		// Append the item to the end of our linked list.
+	public void enqueue(Object item) {
+
 		list.add(item);
 		size++;
 	}
 
-	public Object dequeue()
-	// Pre: this.isEmpty() == false
-	// Post: The item at the front of the queue is returned and 
-	//         deleted from the queue. Returns null if precondition
-	//         not met.
-	{
-		// Store a reference to the item at the front of the queue
-		//   so that it does not get garbage collected when we 
-		//   remove it from the list.
-		// Note: list.get(...) returns null if item not found at
-		//   specified index. See postcondition.
+	public Object dequeue() {
+
 		Object item = list.get(1);
-		// Remove the item from the list.
-		// My implementation of the linked list is based on the
-		//   J2SE API reference. In both, elements start at 1,
-		//   unlike arrays which start at 0.
 		list.remove(1);
 		size--;
-		// Return the item
 		return item;
 		
 	}
 
-	public Object peek()
-	// Pre: this.isEmpty() == false
-	// Post: The item at the front of the queue is returned and 
-	//         deleted from the queue. Returns null if precondition
-	//         not met.
-	{
-		// This method is very similar to dequeue().
-		// See Queue.dequeue() for comments.
+	public Object peek() {
+
 		return list.get(1);
 	}
 	
-	public int size()
-	{
+	public int size() {
+		
 		return size;
 	}
 }
