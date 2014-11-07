@@ -34,11 +34,12 @@ public class Evaluate {
 	        token.equals("+")
 	            || token.equals("-")
 	            || token.equals("*")
-	            || token.equals("/"));
+	            || token.equals("/")
+	            || token.equals("^"));
 	}
 	
 	private static int evalSingleOp(char operation, int op1, int op2) {
-        double result = 0;
+        int result = 0;
 
         switch (operation) {
             case ADD :
@@ -57,8 +58,8 @@ public class Evaluate {
             	result = (int) Math.pow(op1,op2);
         }
         
-        System.out.println(result);
+        
 
-        return 0;
+        return result;
     }
 }
