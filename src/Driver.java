@@ -25,6 +25,7 @@ public class Driver {
 		    	System.out.println("**********************************");
 		    }
 		    in.close();
+		    out.close();
 		} catch (IOException e) {
 		}
 	}

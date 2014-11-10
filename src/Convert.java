@@ -22,9 +22,9 @@ public class Convert {
 	                else {
 	                	
 	                    while (!stack.isEmpty()) {
-	                        int prec2 = stack.peek() / 2;
-	                        int prec1 = current / 2;
-	                        if (prec2 > prec1 || (prec2 == prec1 && c != '^'))
+	                        int p2 = stack.peek() / 2;
+	                        int p1 = current / 2;
+	                        if (p2 > p1 || (p2 == p1 && c != '^'))
 	                        	queue.enqueue(operators.charAt(stack.pop()));
 	                        else {
 	                        	break;

@@ -13,7 +13,9 @@ public class Evaluate {
 	    double result = 0;
 	    String token;
 	    StringTokenizer tokenizer = new StringTokenizer(expr);
+	    
 	    try{
+	    	
 	    while (tokenizer.hasMoreTokens()) {
 	        token = tokenizer.nextToken();
 	
