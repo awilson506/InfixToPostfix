@@ -7,12 +7,13 @@ public class Evaluate {
     private static final char MULTIPLY = '*', DIVIDE = '/', POW = '^';
 	
 	static double calculate(String expr) { 
+		
 		Stack stack = new Stack(0);
 	    int op1, op2;
 	    double result = 0;
 	    String token;
 	    StringTokenizer tokenizer = new StringTokenizer(expr);
-	
+	    try{
 	    while (tokenizer.hasMoreTokens()) {
 	        token = tokenizer.nextToken();
 	
@@ -27,7 +28,12 @@ public class Evaluate {
 	    }
 	
 	    result = ((Integer) stack.pop()).intValue();
-	    return result;
+	    
+		}catch(NumberFormatException e){
+			System.out.println("cannot evaluate strings");
+			
+		}
+		return result;
 	}  
 	
 	private static boolean isOperator(String token) {
