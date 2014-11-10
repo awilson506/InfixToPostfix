@@ -3,8 +3,8 @@ import java.util.StringTokenizer;
 
 public class Evaluate {
 	
-	private static final char ADD = '+', SUBTRACT = '-';
-    private static final char MULTIPLY = '*', DIVIDE = '/', POW = '^';
+	private static final char ADD = '+', SUB = '-';
+    private static final char MULT = '*', DIV = '/', POW = '^';
 	
 	static double calculate(String expr) { 
 		
@@ -16,20 +16,20 @@ public class Evaluate {
 	    
 	    try{
 	    	
-	    while (tokenizer.hasMoreTokens()) {
-	        token = tokenizer.nextToken();
-	
-	        if (isOperator(token)) {
-	            op2 = ((Integer) stack.pop()).intValue();
-	            op1 = ((Integer) stack.pop()).intValue();
-	            result = evalSingleOp(token.charAt(0), op1, op2);
-	            stack.push((int) result);
-	        }
-	        else
-	            stack.push(new Integer(Integer.parseInt(token)));
-	    }
-	
-	    result = ((Integer) stack.pop()).intValue();
+		    while (tokenizer.hasMoreTokens()) {
+		        token = tokenizer.nextToken();
+		
+		        if (isOperator(token)) {
+		            op2 = ((Integer) stack.pop()).intValue();
+		            op1 = ((Integer) stack.pop()).intValue();
+		            result = evalSingleOp(token.charAt(0), op1, op2);
+		            stack.push((int) result);
+		        }
+		        else
+		            stack.push(new Integer(Integer.parseInt(token)));
+		    }
+		
+		    result = ((Integer) stack.pop()).intValue();
 	    
 		}catch(NumberFormatException e){
 			System.out.println("cannot evaluate strings");
@@ -41,10 +41,11 @@ public class Evaluate {
 	private static boolean isOperator(String token) {
 	    return (
 	        token.equals("+")
-	            || token.equals("-")
-	            || token.equals("*")
-	            || token.equals("/")
-	            || token.equals("^"));
+	        || token.equals("-")
+	        || token.equals("*")
+	        || token.equals("/")
+	        || token.equals("^")
+	    );
 	}
 	
 	private static double evalSingleOp(char operation, int op1, int op2) {
@@ -54,13 +55,13 @@ public class Evaluate {
             case ADD :
                 result = op1 + op2;
                 break;
-            case SUBTRACT :
+            case SUB :
                 result = op1 - op2;
                 break;
-            case MULTIPLY :
+            case MULT :
                 result = op1 * op2;
                 break;
-            case DIVIDE :
+            case DIV :
                 result = op1 / op2;
                 break;
             case POW : 
