@@ -1,4 +1,3 @@
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,15 +15,12 @@ public class Parse {
 		for (int i = 0; i < tokenized.length; i++) {
 			if(tokenized[i].trim().length() > 0) {
 				if(Character.isLetter(tokenized[i].charAt(0))){
-					
+
 					if(!isOperator(list.get(list.size()-1))){
-						//System.out.println("char found no op");
 						list.add("*");
 					}
-					//final PrintStream oldStdout = System.out;
-					System.out.println("Please enter a number for the value ");
+					System.out.println("Please enter a number for the variable '" + tokenized[i] + "'");
 					list.add(in.next());
-					//System.setOut(oldStdout);
 					if(!isOperator(tokenized[i+1])){
 						list.add("*");							
 					}
@@ -34,11 +30,10 @@ public class Parse {
 			}
 			
 		}
+		in.close();
 		for(String token1 : list){
 			listString += token1;
-			//System.out.println(token1);
 		}
-		//System.out.println(listString);
 		
 		return listString;
 	}
