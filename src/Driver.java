@@ -13,12 +13,16 @@ public class Driver {
 			String infix;
 			String postfix;
 		    BufferedReader in = new BufferedReader(new FileReader("input.txt"));
+		    PrintStream stdout = System.out;
 		    PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
 		    System.setOut(out);
 		    
 		    while ((infix = in.readLine()) != null){
 		    	
 		    	System.out.printf("Infix:    %s%n", infix);
+		    	System.setOut(stdout);
+		    	infix = Parse.ParseExpression(infix);
+		    	System.setOut(out);
 		    	postfix = Convert.infixToPostfix(infix);
 		    	System.out.printf("Postfix: %s%n", postfix);
 		    	System.out.printf("Evaluation: %s%n" , Evaluate.calculate(postfix));
