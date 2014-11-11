@@ -11,7 +11,6 @@ public class Parse {
 		Scanner in = new Scanner(System.in);
 		String listString = "";
 		
-		
 		for (int i = 0; i < tokenized.length; i++) {
 			if(tokenized[i].trim().length() > 0) {
 				if(Character.isLetter(tokenized[i].charAt(0))){
