@@ -18,7 +18,7 @@ public class Parse {
 				if(Character.isLetter(tokenized[i].charAt(0))){
 					
 					if(!isOperator(list.get(list.size()-1))){
-						System.out.println("char found no op");
+						//System.out.println("char found no op");
 						list.add("*");
 					}
 					//final PrintStream oldStdout = System.out;
@@ -38,7 +38,7 @@ public class Parse {
 			listString += token1;
 			//System.out.println(token1);
 		}
-		System.out.println(listString);
+		//System.out.println(listString);
 		
 		return listString;
 	}
