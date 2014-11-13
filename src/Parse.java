@@ -27,13 +27,11 @@ public class Parse {
 					list.add(tokenized[i]);
 				}
 			}
-			
 		}
 		in.close();
 		for(String token1 : list){
 			listString += token1;
 		}
-		
 		return listString;
 	}
 	
