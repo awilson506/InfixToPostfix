@@ -22,7 +22,7 @@ public class Evaluate {
 		        if (isOperator(token)) {
 		            op2 = ((Integer) stack.pop()).intValue();
 		            op1 = ((Integer) stack.pop()).intValue();
-		            result = evalSingleOp(token.charAt(0), op1, op2);
+		            result = eval(token.charAt(0), op1, op2);
 		            stack.push((int) result);
 		        }
 		        else
@@ -48,7 +48,7 @@ public class Evaluate {
 	    );
 	}
 	
-	private static double evalSingleOp(char operation, int op1, int op2) {
+	private static double eval(char operation, int op1, int op2) {
         double result = 0;
 
         switch (operation) {
